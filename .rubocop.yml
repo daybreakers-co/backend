@@ -1,0 +1,58 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Include:
+    - "**/*.cap"
+    - "Gemfile"
+    - "Rakefile"
+    - "appsignal.gemspec"
+  Exclude:
+    - "tmp/**/*"
+    - "gemfiles/vendor/**/*"
+    - "vendor/**/*"
+  DisplayCopNames: true
+  UseCache: true
+  CacheRootDirectory: ./tmp
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+
+Layout/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/MethodMissing:
+  Exclude:
+    - "lib/appsignal/extension.rb"
+    - "lib/appsignal/transaction.rb"
+
+Style/TrailingUnderscoreVariable:
+  Enabled: false
+
+Metrics/LineLength:
+   Max: 110
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

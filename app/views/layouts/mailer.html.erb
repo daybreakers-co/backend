@@ -1,0 +1,198 @@
+<html>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <style>
+      #outlook a {
+        padding: 0;
+      }
+
+      body {
+        width: 100% !important;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: Helvetica, Arial;
+        font-size: 14px;
+      }
+
+      .ExternalClass {
+        width: 100%;
+      }
+
+      .ExternalClass {
+        line-height: 100%;
+      }
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass font,
+      .ExternalClass td,
+      .ExternalClass div {
+        line-height: 100%;
+      }
+
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        color: #333333;
+      }
+
+      table td {
+        border-collapse: collapse;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1, h2, h3, h4 {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+      }
+
+      h1 {
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333333;
+      }
+
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+        font-size: 14px;
+        line-height: 1.4;
+        color: #333333;
+      }
+
+      h2 {
+        font-size: 12px;
+        font-weight: bold;
+        color: #fff0ab;
+        margin-bottom: 12px;
+      }
+
+      a {
+        color: #f17300 !important;
+        text-decoration: underline;
+      }
+
+      pre {
+        margin: 0;
+        color: #024966;
+        font-family: Monaco, "Courier New", Courier, monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+      }
+
+      code {
+        color: #024966;
+        font-family: Monaco, "Courier New", Courier, monospace;
+        font-size: 11px;
+        white-space: pre-wrap;
+      }
+
+      img {
+        outline: none;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic;
+      }
+
+      a img {
+        border: none;
+      }
+
+      .border {
+        width: 600px;
+        border-radius: 5px;
+        border: 1px solid #f7f9c0;
+        overflow: hidden;
+        margin-bottom: 20px;
+        background: #fff;
+      }
+
+      .wide {
+        width: 800px;
+      }
+
+      #backgroundTable {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0;
+        padding: 0;
+        vertical-align: top;
+        line-height: 100% !important;
+        background: #f0f0f0;
+      }
+      #backgroundTable .first_td {
+        padding-top: 10px;
+      }
+
+      #innerTableHeader {
+        background: transparent;
+      }
+      #innerTableHeader tr td {
+        font-size: 28px !important;
+        padding-left: 0;
+        font-color: #333333 !important;
+      }
+
+      #innerTableFooter {
+        margin-top: 10px;
+      }
+      #innerTableFooter tr td {
+        font-size: 14px;
+        padding-left: 0;
+        background: transparent;
+      }
+
+      #innerTableContent td {
+        background: white;
+        font-size: 14px;
+        padding: 20px;
+      }
+      #innerTableContent tr + tr td {
+        border-top: 1px solid #f7f9c0;
+      }
+
+  </style>
+  </head>
+  <body>
+    <center>
+      <table border='0' cellpadding='0' cellspacing='0' id='backgroundTable' width='100%'>
+        <tr>
+          <td align='center' class='first_td' valign='top'>
+            <table id='innerTableHeader'>
+              <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </table>
+            <table id='innerTableContent'>
+              <tr>
+                <td align='left' valign='top'>
+                  <%= yield %>
+                </td>
+              </tr>
+            </table>
+            <table id='innerTableFooter'>
+              <tr>
+                <td align='left' valign='top'>
+                  <p></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
