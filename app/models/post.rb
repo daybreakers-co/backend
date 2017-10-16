@@ -2,10 +2,11 @@ class Post
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :title,        :type => String
-  field :subtitle,     :type => String
-  field :publish_date, :type => Date, :default => -> { Date.today }
-  field :published,    :type => Mongoid::Boolean, :default => false
+  field :title,      :type => String
+  field :subtitle,   :type => String
+  field :start_date, :type => Date, :default => -> { Date.today }
+  field :end_date,   :type => Date, :default => -> { Date.today }
+  field :published,  :type => Mongoid::Boolean, :default => false
 
   belongs_to :user
   belongs_to :trip

@@ -86,15 +86,17 @@ Types::MutationType = GraphQL::ObjectType.define do
 
     argument :published, types.Boolean
 
-    camelized_argument :publish_date, Types::DateType
+    camelized_argument :start_date, Types::DateType
+    camelized_argument :end_date, Types::DateType
 
     resolve_with_user ->(obj, args, ctx) do
       ctx[:current_user].posts.find(args[:id]).tap do |post|
         post.update_attributes!(
-          :title        => args[:title],
-          :subtitle     => args[:subtitle],
-          :publish_date => args[:publish_date],
-          :published    => args[:published] == true
+          :title      => args[:title],
+          :subtitle   => args[:subtitle],
+          :start_date => args[:start_date],
+          :end_date   => args[:end_date],
+          :published  => args[:published] == true
         )
       end
     end

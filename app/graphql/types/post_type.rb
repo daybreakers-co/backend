@@ -8,9 +8,10 @@ Types::PostType = GraphQL::ObjectType.define do
 
   field :published, types.Boolean
 
-  camelized_field :publish_date, !Types::DateType
-  camelized_field :created_at,   !Types::DateTimeType
-  camelized_field :updated_at,   !Types::DateTimeType
+  camelized_field :start_date, !Types::DateType
+  camelized_field :end_date,   !Types::DateType
+  camelized_field :created_at, !Types::DateTimeType
+  camelized_field :updated_at, !Types::DateTimeType
 
   field :locations, types[Types::LocationType]
 
