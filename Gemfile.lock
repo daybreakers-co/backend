@@ -40,9 +40,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    appsignal (2.1.2)
+    appsignal (2.3.7)
       rack
-      thread_safe
     arel (8.0.0)
     ast (2.3.0)
     bcrypt (3.1.11)
@@ -70,7 +69,7 @@ GEM
       thor (~> 0.19.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    graphql (1.6.6)
+    graphql (1.7.4)
     graphql-batch (0.3.5)
       graphql (>= 0.8, < 2)
       promise.rb (~> 0.7.2)
