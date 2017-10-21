@@ -9,4 +9,8 @@ class Trip
   belongs_to :user
   has_one :header, :as => :photographic, :dependent => :destroy, :class_name => "Photo"
   has_many :posts, :dependent => :destroy
+
+  def photographic_ids
+    posts.map(&:photographic_ids).flatten
+  end
 end

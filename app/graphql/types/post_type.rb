@@ -27,6 +27,12 @@ Types::PostType = GraphQL::ObjectType.define do
     resolve -> (obj, args, ctx) { obj.sections.asc(:index) }
   end
 
+  field :photos, types[Types::PhotoType] do
+    resolve ->(obj, args, context) do
+      ForeignKeyLoader.for(Photo, :photographic_id).load(obj.photographic_ids)
+    end
+  end
+
   field :next, Types::PostType do
     resolve ->(obj, args, ctx) do
       Post

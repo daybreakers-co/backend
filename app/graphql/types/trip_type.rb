@@ -12,6 +12,12 @@ Types::TripType = GraphQL::ObjectType.define do
     end
   end
 
+  field :photos, types[Types::PhotoType] do
+    resolve ->(obj, args, context) do
+      ForeignKeyLoader.for(Photo, :photographic_id).load(obj.photographic_ids)
+    end
+  end
+
   field :posts, types[Types::PostType] do
     resolve ->(obj, args, ctx) do
       if ctx[:current_user]

@@ -19,4 +19,8 @@ class Post
   scope :published, lambda {
     where(:published => true, :publish_date.lte => Time.now)
   }
+
+  def photographic_ids
+    sections.map(&:photographic_ids).flatten
+  end
 end

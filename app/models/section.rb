@@ -8,4 +8,8 @@ class Section
   def ensure_index
     write_attribute(:index, post.sections.length - 1)
   end
+
+  def photographic_ids
+    []
+  end
 end
