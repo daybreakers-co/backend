@@ -45,11 +45,16 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :title,    types.String
     argument :subtitle, types.String
 
+    camelized_argument :start_date, Types::DateType
+    camelized_argument :end_date, Types::DateType
+
     resolve_with_user ->(obj, args, ctx) do
       ctx[:current_user].trips.find(args[:id]).tap do |trip|
         trip.update_attributes!(
-          :title    => args[:title],
-          :subtitle => args[:subtitle]
+          :title      => args[:title],
+          :subtitle   => args[:subtitle],
+          :start_date => args[:start_date],
+          :end_date   => args[:end_date]
         )
       end
     end

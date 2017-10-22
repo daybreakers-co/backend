@@ -1,11 +1,10 @@
 class Post
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Dateable
 
   field :title,      :type => String
   field :subtitle,   :type => String
-  field :start_date, :type => Date, :default => -> { Date.today }
-  field :end_date,   :type => Date, :default => -> { Date.today }
   field :published,  :type => Mongoid::Boolean, :default => false
 
   belongs_to :user
@@ -17,7 +16,7 @@ class Post
   embeds_many :locations, :cascade_callbacks => true
 
   scope :published, lambda {
-    where(:published => true, :publish_date.lte => Time.now)
+    where(:published => true)
   }
 
   def photographic_ids

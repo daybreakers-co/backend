@@ -1,16 +1,10 @@
 Types::TripType = GraphQL::ObjectType.define do
-  interfaces [Interfaces::ViewerRightsInterface]
+  interfaces [Interfaces::ViewerRightsInterface, Interfaces::DateableInterface]
 
   name "Trip"
   field :id,      !types.String
   field :title,    types.String
   field :subtitle, types.String
-
-  field :header, Types::PhotoType do
-    resolve ->(obj, args, context) do
-      ForeignKeyLoader.for(Photo, :photographic_id).load(obj.id)
-    end
-  end
 
   field :photos, types[Types::PhotoType] do
     resolve ->(obj, args, context) do
