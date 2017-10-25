@@ -77,6 +77,8 @@ Rails.application.configure do
       domain: Rails.application.secrets.mailgun_domain
   }
 
+  config.action_controller.asset_host = 'https://cdn%d.daybreakers.co'
+
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')

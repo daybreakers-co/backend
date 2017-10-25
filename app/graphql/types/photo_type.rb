@@ -7,6 +7,6 @@ Types::PhotoType = GraphQL::ObjectType.define do
   field :ratio,  !types.Float,  :property => :ratio
 
   field :url,    !types.String do
-    resolve ->(obj, args, ctx) { photo_url(obj.id, :format => "jpg").to_s }
+    resolve ->(obj, args, ctx) { photo_cdn_url(obj.id, :format => "jpg").to_s }
   end
 end

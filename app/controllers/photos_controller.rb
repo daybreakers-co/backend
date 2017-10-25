@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  include PhotoHelper
 
   def create
     unless bearer_token
@@ -45,7 +46,7 @@ class PhotosController < ApplicationController
 
     render :json => {
       :id     => photo.id.to_s,
-      :url    => photo_url(photo),
+      :url    => photo_cdn_url(photo),
       :width  => photo.image_width,
       :height => photo.image_height,
       :ratio  => photo.ratio
