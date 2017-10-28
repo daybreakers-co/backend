@@ -7,8 +7,12 @@ Types::TripType = GraphQL::ObjectType.define do
   field :subtitle, types.String
 
   field :photos, types[Types::PhotoType] do
+    argument :sample, types.Int
     resolve ->(obj, args, context) do
-      ForeignKeyLoader.for(Photo, :photographic_id).load(obj.photographic_ids)
+      ids = obj.photographic_ids
+      ids = ids.sample(args[:sample]) if args[:sample] && args[:sample] > 0
+
+      ForeignKeyLoader.for(Photo, :photographic_id).load(ids)
     end
   end
 
