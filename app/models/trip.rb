@@ -11,6 +11,6 @@ class Trip
   has_many :posts, :dependent => :destroy
 
   def photographic_ids
-    posts.map(&:photographic_ids).flatten
+    @photographic_ids ||= posts.published.map(&:photographic_ids).flatten
   end
 end

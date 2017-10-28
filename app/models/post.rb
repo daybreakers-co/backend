@@ -20,6 +20,6 @@ class Post
   }
 
   def photographic_ids
-    sections.map(&:photographic_ids).flatten
+    @photographic_ids ||= sections.map(&:photographic_ids).flatten
   end
 end
