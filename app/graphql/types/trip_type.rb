@@ -6,6 +6,7 @@ Types::TripType = GraphQL::ObjectType.define do
   field :title,    types.String
   field :subtitle, types.String
 
+  camelized_field :post_count, !types.Int
   camelized_field :photo_count, !types.Int
 
   field :photos, types[Types::PhotoType] do
