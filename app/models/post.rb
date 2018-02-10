@@ -19,6 +19,12 @@ class Post
     where(:published => true)
   }
 
+  after_save :update_trip
+
+  def update_trip
+    UpdateTripJob.perform_later trip.id.to_s
+  end
+
   def photographic_ids
     @photographic_ids ||= sections.map(&:photographic_ids).flatten
   end

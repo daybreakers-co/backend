@@ -6,17 +6,15 @@ Types::TripType = GraphQL::ObjectType.define do
   field :title,    types.String
   field :subtitle, types.String
 
-  camelized_field :photo_count, !types.Int do
-    resolve ->(obj, args, context) do
-      obj.photographic_ids.length
-    end
-  end
+  camelized_field :photo_count, !types.Int
 
   field :photos, types[Types::PhotoType] do
     argument :sample, types.Int
     resolve ->(obj, args, context) do
       ids = obj.photographic_ids
-      ids = ids.sample(args[:sample]) if args[:sample] && args[:sample] > 0
+      if args[:sample] && args[:sample] > 0
+        ids = ids.sample(args[:sample])
+      end
 
       ForeignKeyLoader.for(Photo, :photographic_id).load(ids)
     end

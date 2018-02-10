@@ -7,10 +7,18 @@ class Trip
   field :subtitle, :type => String
   field :public,   :type => Mongoid::Boolean
 
+  field :photo_count, :type => Integer
+  field :photographic_ids, :type => Array
+
   belongs_to :user
   has_many :posts, :dependent => :destroy
 
-  def photographic_ids
-    @photographic_ids ||= posts.published.map(&:photographic_ids).flatten
+  def update_photographic_ids
+    photographic_ids = posts.published.map(&:photographic_ids).flatten
+
+    update_attributes!(
+      :photo_count => photographic_ids.length,
+      :photographic_ids => photographic_ids
+    )
   end
 end
