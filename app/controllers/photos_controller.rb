@@ -58,7 +58,11 @@ class PhotosController < ApplicationController
     if params[:width] && params[:height]
       image = image.thumb("#{params[:width]}x#{params[:height]}#").apply
     elsif params[:width] || params[:height]
-      image =image.thumb("#{params[:width].presence}x#{params[:height].presence}").apply
+      image = image.thumb("#{params[:width].presence}x#{params[:height].presence}").apply
+    elsif params[:w] && params[:h]
+      image = image.thumb("#{params[:w]}x#{params[:h]}#").apply
+    elsif params[:w] || params[:h]
+      image = image.thumb("#{params[:w]}x#{params[:h]}#").apply
     end
 
     response.set_header("ETag", %("#{image.try(:signature) || image.send(:uid)}"))

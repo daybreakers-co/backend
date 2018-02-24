@@ -77,7 +77,7 @@ Rails.application.configure do
       domain: Rails.application.secrets.mailgun_domain
   }
 
-  config.action_controller.asset_host = 'https://cdn%d.daybreakers.co'
+  config.action_controller.asset_host = 'https://daybreakers-prod.imgix.net'
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
