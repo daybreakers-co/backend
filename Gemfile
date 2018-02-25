@@ -10,6 +10,8 @@ gem "graphql-batch"
 
 gem "fog-aws", :require => "fog/aws"
 gem "dragonfly"
+gem "dragonfly-s3_data_store"
+
 gem "mongoid", "~> 6.2.0"
 gem "foreman"
 gem "omniauth"

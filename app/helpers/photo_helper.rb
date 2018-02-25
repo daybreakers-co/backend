@@ -1,10 +1,9 @@
 module PhotoHelper
-  def photo_cdn_url(path, options={})
+  def photo_cdn_url(obj, options={})
     if ActionController::Base.asset_host
-      host = ActionController::Base.asset_host % (Zlib.crc32(photo_path(path, options)) % 4)
-      photo_url(path, options.merge(:host => host))
+      [ActionController::Base.asset_host, Rails.env, obj.image_uid].join('/')
     else
-      photo_url(path, options)
+      photo_url(obj.id, :format => File.extname(obj.image_uid))
     end
   end
 end

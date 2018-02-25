@@ -30,11 +30,6 @@ class PhotosController < ApplicationController
           .sections
           .find(params[:parentId])
           .create_photo(photo_params)
-      when 'Trip'
-        user
-          .trips
-          .find(params[:parentId])
-          .create_header(photo_params)
       when 'Post'
         user
           .posts
@@ -55,14 +50,10 @@ class PhotosController < ApplicationController
 
   def show
     image = Photo.find(params[:id]).image
-    if params[:width] && params[:height]
-      image = image.thumb("#{params[:width]}x#{params[:height]}#").apply
-    elsif params[:width] || params[:height]
-      image = image.thumb("#{params[:width].presence}x#{params[:height].presence}").apply
-    elsif params[:w] && params[:h]
-      image = image.thumb("#{params[:w]}x#{params[:h]}#").apply
+    if params[:w] && params[:h]
+      image = image.thumb("#{params[:w]}x#{params[:h]}").apply
     elsif params[:w] || params[:h]
-      image = image.thumb("#{params[:w]}x#{params[:h]}#").apply
+      image = image.thumb("#{params[:w]}x#{params[:h]}").apply
     end
 
     response.set_header("ETag", %("#{image.try(:signature) || image.send(:uid)}"))

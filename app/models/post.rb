@@ -20,6 +20,7 @@ class Post
   }
 
   after_save :update_trip
+  before_destroy lambda { |post| Photo.where(:photographic_id.in => photographic_ids).each(&:destroy) }
 
   def update_trip
     UpdateTripJob.perform_later trip.id.to_s
