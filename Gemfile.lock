@@ -245,7 +245,6 @@ DEPENDENCIES
   devise
   dragonfly
   dragonfly-s3_data_store
-  fog-aws
   foreman
   graphql
   graphql-batch

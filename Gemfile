@@ -8,7 +8,6 @@ end
 gem "graphql"
 gem "graphql-batch"
 
-gem "fog-aws", :require => "fog/aws"
 gem "dragonfly"
 gem "dragonfly-s3_data_store"
 
