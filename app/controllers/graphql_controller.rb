@@ -1,7 +1,7 @@
 class GraphqlController < ApplicationController
   def execute
     context = {}
-    if bearer_token
+    if bearer_token.present?
       user = User.find_by(:authentication_token => bearer_token)
       context[:current_user] = user if user
     end
