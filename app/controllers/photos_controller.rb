@@ -39,6 +39,8 @@ class PhotosController < ApplicationController
         raise ArgumentError("Could not create photo for type #{args[:parentType]} and id: #{args[:parentId]}")
     end
 
+    Appsignal.increment_counter("photo_created", 1)
+
     render :json => {
       :id     => photo.id.to_s,
       :url    => photo_cdn_url(photo),

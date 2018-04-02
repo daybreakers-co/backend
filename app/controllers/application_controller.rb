@@ -1,5 +1,9 @@
 class ApplicationController < ActionController::API
 
+  def is_up
+    head :ok
+  end
+
   private
 
   def bearer_token
