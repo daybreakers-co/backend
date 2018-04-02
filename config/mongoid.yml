@@ -155,3 +155,11 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+production:
+  clients:
+    default:
+      uri: "<%= ENV['MONGODB_URL'] %>"
+      options:
+        max_pool_size: 10
+        auth_mech: :scram
+        auth_source: admin
