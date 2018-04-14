@@ -13,5 +13,5 @@ Installation:
 
 * Clone the repo: `git clone git@github.com:daybreakers-co/backend.git`
 * Install gems: `bundle install`
-* Start MongoDB: `bundle exec foreman start`
+* Start MongoDB and webserver: `bundle exec foreman start`
 * Run the webserver: `rails s -p 3001`

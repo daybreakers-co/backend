@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/is_up",        to: "application#is_up"
+  get "/is_up",       to: "application#is_up"
   post "/graphql",    to: "graphql#execute"
   post "/photos",     to: "photos#create"
   get "/photos/:id",  to: "photos#show", :as => :photo

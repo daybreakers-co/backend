@@ -24,9 +24,9 @@ Types::TripType = GraphQL::ObjectType.define do
   field :posts, types[Types::PostType] do
     resolve ->(obj, args, ctx) do
       if ctx[:current_user]
-        obj.posts
+        obj.posts.asc(:created_at)
       else
-        obj.posts.published
+        obj.posts.published.asc(:created_at)
       end
     end
   end
